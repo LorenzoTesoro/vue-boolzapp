@@ -1,0 +1,52 @@
+/* #region common rules */
+
+:root{
+    --clr-bg-primary:#009688;
+    --clr-bg-secondary:#DCDBD1;
+    --clr-secondary-light:#EAEAEA;
+    --clr-user-msg:#D5F9BA;
+    --clr-white:#FFFFFF;
+    --clr-push:#8EDAFC;
+}
+
+body{
+    height:100vh;
+}
+
+.top{
+    height:15vh;
+    background-color: var(--clr-bg-primary);
+}
+
+.main{
+    height:75vh;
+    background-color: var(--clr-bg-secondary);
+}
+
+.user_interface{
+    height:90vh;
+    position:relative;
+    bottom:100px;
+}
+/* #endregion common rules */
+
+/* debug */
+.debug .user_interface{
+    background-color: red;
+}
+.debug .row{
+    height:100%;
+}
+.debug .col{
+    height:90vh;
+}
+.debug .col-lg-3{
+    background-color: lightgreen;
+}
+.debug .col-lg{
+    background-color: lightcoral;
+}
+.debug .controls{
+    height:10vh;
+    background-color: lightblue;
+}
