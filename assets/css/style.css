@@ -8,6 +8,7 @@
     --clr-user-msg:#D5F9BA;
     --clr-white:#FFFFFF;
     --clr-push:#8EDAFC;
+    --clr-push-transparent:#4F7485;
 }
 
 body{
@@ -57,6 +58,7 @@ main .controls{
     height:90vh;
     position:relative;
     bottom:100px;
+    max-width: 1440px;
 }
 
 /* left-side */
@@ -67,5 +69,21 @@ main .controls{
 }
 .left .controls{
     background-color: var(--clr-secondary-light);
+}
+
+.app_push{
+    background-color: var(--clr-push);
+}
+.bell{
+    width:60px;
+    aspect-ratio:1;
+    border-radius: 50%;
+}
+.bell i{
+    font-size:1.5rem;
+    color: var(--clr-push);
+}
+.app_push span:last-of-type{
+    color:var(--clr-push-transparent);
 }
 /* #endregion main */
