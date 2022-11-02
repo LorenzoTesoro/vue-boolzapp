@@ -32,9 +32,6 @@ main{
     background-color: red;
 }
 
-.debug .col-lg-3{
-    background-color: lightgreen;
-}
 .debug .col-lg{
     background-color: lightcoral;
 }
@@ -70,7 +67,7 @@ main .controls{
 .left .controls{
     background-color: var(--clr-secondary-light);
 }
-
+/* push_section */
 .app_push{
     background-color: var(--clr-push);
 }
@@ -85,5 +82,22 @@ main .controls{
 }
 .app_push span:last-of-type{
     color:var(--clr-push-transparent);
+}
+/* /.push_section */
+.search{
+    background-color: var(--clr-secondary-light);
+}
+.search i{
+    bottom:15px;
+    left:50px;
+    color:var(--clr-controls)
+}
+.search input{
+    border: 0;
+    height:35px;
+}
+input::placeholder{
+    text-align: center;
+    color:var(--clr-controls);
 }
 /* #endregion main */
