@@ -2,8 +2,9 @@
 
 :root{
     --clr-bg-primary:#009688;
-    --clr-bg-secondary:#DCDBD1;
+    --clr-bg-secondary:#DBDBD2;
     --clr-secondary-light:#EAEAEA;
+    --clr-controls:#B1B1B1;
     --clr-user-msg:#D5F9BA;
     --clr-white:#FFFFFF;
     --clr-push:#8EDAFC;
@@ -18,28 +19,18 @@ body{
     background-color: var(--clr-bg-primary);
 }
 
-.main{
-    height:75vh;
+main{
+    height:100vh;
     background-color: var(--clr-bg-secondary);
 }
 
-.user_interface{
-    height:90vh;
-    position:relative;
-    bottom:100px;
-}
 /* #endregion common rules */
 
-/* debug */
+/* #region debug */
 .debug .user_interface{
     background-color: red;
 }
-.debug .row{
-    height:100%;
-}
-.debug .col{
-    height:90vh;
-}
+
 .debug .col-lg-3{
     background-color: lightgreen;
 }
@@ -47,6 +38,34 @@ body{
     background-color: lightcoral;
 }
 .debug .controls{
-    height:10vh;
     background-color: lightblue;
 }
+/* #endregion debug */
+
+
+/* #region main */
+main img{
+    height:60px;
+}
+main .col{
+    height:90vh;
+}
+main .controls{
+    height:10vh;
+}
+.user_interface{
+    height:90vh;
+    position:relative;
+    bottom:100px;
+}
+
+/* left-side */
+
+.controls i{
+    font-size:1.3rem;
+    color:var(--clr-controls);
+}
+.left .controls{
+    background-color: var(--clr-secondary-light);
+}
+/* #endregion main */
