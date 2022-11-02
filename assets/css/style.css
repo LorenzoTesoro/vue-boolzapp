@@ -52,11 +52,12 @@ main .controls{
 /* left-side */
 
 .controls i{
-    font-size:1.3rem;
+    font-size:1.5rem;
     color:var(--clr-controls);
 }
 .left .controls{
     background-color: var(--clr-secondary-light);
+    border-right:0.1rem  solid var(--clr-controls);
 }
 /* push_section */
 .app_push{
@@ -114,4 +115,42 @@ input::placeholder{
     font-size:0.8rem;
 }
 /* /.contacts */
+/* /.left-side */
+
+/* right-side */
+.right{
+    background-image: url('../img/mine.jpg');
+    margin-bottom:1rem;
+    position: relative;
+}
+.right .controls{
+    background-color: var(--clr-secondary-light);
+}
+.right .last_access{
+    font-size:0.8rem;
+    color: #6B7376;
+}
+.right img{
+    max-width: 100%;
+}
+.right .message_text{
+    background-color: #F3EEEA;
+    position: absolute;
+    bottom:0;
+}
+.right .message_text i{
+    font-size:1.7rem;
+    color:#6B7376;
+}
+.right input{
+    width:80%;
+    height: 50px;
+    border:0;
+}
+.right input::placeholder{
+    text-align: left;
+    padding-left:0.5rem;
+    color: #6B7376;
+}
+/* /.right-side */
 /* #endregion main */
