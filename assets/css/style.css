@@ -6,6 +6,7 @@
     --clr-secondary-light:#EAEAEA;
     --clr-controls:#B1B1B1;
     --clr-user-msg:#D5F9BA;
+    --clr-off-white:#F5F5F5;
     --clr-white:#FFFFFF;
     --clr-push:#8EDAFC;
     --clr-push-transparent:#4F7485;
@@ -21,23 +22,17 @@ body{
 }
 
 main{
-    height:100vh;
     background-color: var(--clr-bg-secondary);
 }
 
 /* #endregion common rules */
 
 /* #region debug */
-.debug .user_interface{
-    background-color: red;
-}
 
 .debug .col-lg{
     background-color: lightcoral;
 }
-.debug .controls{
-    background-color: lightblue;
-}
+
 /* #endregion debug */
 
 
@@ -45,14 +40,10 @@ main{
 main img{
     height:60px;
 }
-main .col{
-    height:90vh;
-}
 main .controls{
-    height:10vh;
+    height:10vh
 }
 .user_interface{
-    height:90vh;
     position:relative;
     bottom:100px;
     max-width: 1440px;
@@ -100,4 +91,27 @@ input::placeholder{
     text-align: center;
     color:var(--clr-controls);
 }
+
+/* contacs */
+.contacts{
+    background-color: var(--clr-white);
+}
+.contacts li{
+    border-top:0.1rem solid var(--clr-off-white);
+    border-bottom:0.1rem solid var(--clr-off-white);
+    position:relative;
+}
+.contacts li span:first-of-type{
+    margin-top: -0.5rem;
+}
+.contacts li span:last-of-type, .time{
+    color: var(--clr-controls);
+}
+.contacts .time{
+    position:absolute;
+    right:10px;
+    top:5px;
+    font-size:0.8rem;
+}
+/* /.contacts */
 /* #endregion main */
