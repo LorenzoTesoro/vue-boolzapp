@@ -1,0 +1,191 @@
+/* #region common rules */
+
+:root{
+    --clr-bg-primary:#009688;
+    --clr-bg-secondary:#DBDBD2;
+    --clr-secondary-light:#EAEAEA;
+    --clr-controls:#B1B1B1;
+    --clr-sent-msg:#D5F9BA;
+    --clr-off-white:#F5F5F5;
+    --clr-white:#FFFFFF;
+    --clr-push:#8EDAFC;
+    --clr-push-transparent:#4F7485;
+}
+
+body{
+    height:100vh;
+}
+
+.top{
+    height:15vh;
+    background-color: var(--clr-bg-primary);
+}
+
+main{
+    background-color: var(--clr-bg-secondary);
+}
+
+main .user_interface .row .contacts{
+    overflow-y: scroll;
+}
+/* #endregion common rules */
+
+/* #region main */
+main img{
+    height:60px;
+}
+main .controls{
+    height:10vh
+}
+.user_interface{
+    position:relative;
+    bottom:100px;
+    max-width: 1440px;
+}
+
+/* left-side */
+
+.controls i{
+    font-size:1.5rem;
+    color:var(--clr-controls);
+}
+.left .controls{
+    background-color: var(--clr-secondary-light);
+    border-right:0.1rem  solid var(--clr-controls);
+}
+/* push_section */
+.app_push{
+    background-color: var(--clr-push);
+}
+.bell{
+    width:60px;
+    aspect-ratio:1;
+    border-radius: 50%;
+}
+.bell i{
+    font-size:1.5rem;
+    color: var(--clr-push);
+}
+.app_push span:last-of-type{
+    color:var(--clr-push-transparent);
+}
+/* /.push_section */
+.search{
+    background-color: var(--clr-secondary-light);
+}
+.search i{
+    bottom:15px;
+    left:50px;
+    color:var(--clr-controls)
+}
+.search input{
+    border: 0;
+    height:35px;
+}
+input::placeholder{
+    text-align: center;
+    color:var(--clr-controls);
+}
+
+/* contacs */
+.contacts{
+    background-color: var(--clr-white);
+}
+.contacts li{
+    border-top:0.1rem solid var(--clr-off-white);
+    border-bottom:0.1rem solid var(--clr-off-white);
+    position:relative;
+}
+.contacts li span:first-of-type{
+    margin-top: -0.5rem;
+}
+.contacts li span:last-of-type, .time{
+    color: var(--clr-controls);
+}
+.contacts .time{
+    position:absolute;
+    right:10px;
+    top:5px;
+    font-size:0.8rem;
+}
+.active_contact{
+    background-color: #E9EBEB;
+}
+/* /.contacts */
+
+/* /.left-side */
+
+
+
+
+/* right-side */
+.right{
+    background-image: url('../img/mine.jpg');
+    margin-bottom:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.right .controls{
+    background-color: var(--clr-secondary-light);
+}
+.right .last_access{
+    font-size:0.8rem;
+    color: #6B7376;
+}
+.right img{
+    max-width: 100%;
+}
+.right .message_text{
+    background-color: #F3EEEA;
+    justify-self: flex-end;
+}
+.right .message_text i{
+    font-size:1.7rem;
+    color:#6B7376;
+}
+.right input{
+    width:80%;
+    height: 50px;
+    border:0;
+}
+.right input::placeholder{
+    text-align: left;
+    padding-left:0.5rem;
+    color: #6B7376;
+}
+.conversation{
+    height:100%;
+    overflow-y: scroll;
+}
+.conversation .received_message {
+    height:50px;
+    max-width: 250px;
+    background-color: var(--clr-white);
+    padding-left:1rem;
+    position: relative;
+    align-self: flex-start;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+}
+
+.conversation .sent_message{
+    height:50px;
+    max-width: 250px;
+    background-color: var(--clr-sent-msg);
+    padding-left:1rem;
+    position: relative;
+    align-self: flex-end;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+}
+
+span.message_time{
+    font-size: 0.5rem;
+    position: absolute;
+    right:0.2rem;
+    bottom:0.5rem;
+    color: var(--clr-controls);
+}
+/* /.right-side */
+/* #endregion main */
