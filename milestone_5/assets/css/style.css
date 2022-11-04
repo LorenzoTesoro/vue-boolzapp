@@ -202,9 +202,7 @@ input::placeholder{
 .active{
     display: block;
 }
-.deleted_message{
-    display: none;
-}
+
 span.message_time{
     font-size: 0.5rem;
     position: absolute;

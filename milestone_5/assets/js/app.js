@@ -4,10 +4,6 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
-            deleted: {
-                i:0,
-                value:false
-            },
             isActive: {
                 i: 0,
                 value: false
@@ -210,11 +206,15 @@ createApp({
             this.isActive.value = false
         },
         deleteMessage(message,index){
-            console.log(message)
-            console.log(this.deleted)
-
-            this.deleted.i = index
-            this.deleted.value = true
+            
+            return this.message[index] = {}
+        },
+        lastMessage(contact,message){
+            if(contact.messages.length <= 0){
+                return 'Non ci sono messaggi'
+            } else{
+                return contact.messages[contact.messages.length -1].message
+            }
         }
     },
     computed: {
@@ -227,9 +227,6 @@ createApp({
                  return this.contacts
             } 
         },
-        lastMessage(){
-            this.contacts.slice(-1)[0]
-        }
     }
 }).mount('#app')
 
