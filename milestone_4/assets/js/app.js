@@ -4,7 +4,7 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
-            search :'',
+            searchQuery : null,
             botAnswer:{
                 message:'Ok!',
                 status:'received'
@@ -197,13 +197,21 @@ createApp({
     },
     computed: {
         filteredList(){
-            if(search = undefined){
-                this.filteredList.messages
-            } 
-            return this.contacts.filter(contact => {
-                return contact.name.toLowerCase().includes(this.search.toLowerCase())
+            if(this.searchQuery){
+              return this.contacts.filter(contact => {
+                return this.searchQuery.toLowerCase().split("").every(v => contact.name.toLowerCase().includes(v))
               })
+            } else {
+                 return this.contacts
+            } 
         }
     }
 }).mount('#app')
 
+
+
+// Default: si vedono tutti i contatti. All'inserimento dei caratteri da parte dell'utente rimangono a schermo solo quelli che contengono quei caratteri
+
+// dare regola al ciclo for tramite computed - come filtrare nell'array
+
+// 
