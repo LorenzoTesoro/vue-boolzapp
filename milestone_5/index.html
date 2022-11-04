@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue-Boolzapp</title>
+
+    <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- General style -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+
+        <div id="app">
+            <div class="top">
+            </div>
+        <!-- /.top -->
+    
+            <main>
+                <div class="user_interface container">
+                    <div class="row">
+                        <div class="col-lg-4 p-0 left">
+                            <div class="controls d-flex justify-content-between align-items-center py-5">
+                                <div class="user_img ps-2">
+                                    <img src="./assets/img/avatar_io.jpg" alt="user_img" class="rounded-pill">
+                                    <span class="ps-2 fw-semibold">Sofia</span>
+                                </div>
+                                <div class="commands d-flex">
+                                    <div class="pe-3">
+                                        <i class="fa-solid fa-message" class="fs-4"></i>
+                                    </div>
+                                    <div class="pe-3">
+                                        <i class="fa-solid fa-circle-notch"></i>
+                                    </div>
+                                    <div class="pe-3">
+                                        <i class="fa-solid fa-ellipsis-vertical" class="ps-2"></i>                            
+                                    </div>
+                                </div>
+                            </div>
+                <!-- /. left-side controls -->
+                            <div class="app_push d-flex py-3 align-items-center ps-2">
+                                <div class="bell bg-white d-flex justify-content-center align-items-center ms-2">
+                                       <i class="fa-solid fa-bell-slash"></i>
+                                </div>
+                                <div class="d-flex flex-column ps-2">
+                                    <span class="text-dark fw-semibold">
+                                        Ricevi notifiche di nuovi messaggi
+                                    </span>
+                                    <span class="text-decoration-underline">
+                                        Attiva notifiche desktop
+                                    </span>
+                                </div>
+                            </div>
+                <!-- /. notifications control-->
+                            <div class="p-2 search position-relative">
+                                <i class="fa-solid fa-magnifying-glass position-absolute"></i>
+                                <input class="w-100 h-60" type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchQuery">
+                            </div>
+                <!-- /. search -->
+                            <ul class="contacts list-unstyled">
+                                <li class="d-flex p-3" :class="activeIndex === index ? 'active_contact' : ''"
+                                @click="setActiveIndex(index)" :key="contact.id"
+                                v-for="(contact,index) in filteredList"
+                                >
+                                    <div>
+                                        <img class="rounded-pill" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="">
+                                    </div>
+                                    <div class="ps-3 d-flex flex-column">
+                                        <span class="fw-semibold fs-5">{{contact.name}}</span>
+                                        <span class="fw-small">Ultimo messaggio inviato</span>
+                                    </div>
+                                    <div class="time">
+                                        12.00
+                                    </div>
+                                </li>
+                            </ul>
+                <!-- /.messages -->
+                        </div>
+                        <div class="col-lg p-0 right">
+                            <div class="w-100">
+                                <div class="controls d-flex justify-content-between align-items-center py-5">
+                                    <div class="user_img ps-2 d-flex">
+                                        <div>
+                                            <img class="rounded-pill" :src="`./assets/img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
+                                        </div>
+                                        <div>
+                                            <div class="ps-2 fw-semibold">{{contacts[activeIndex].name}}</div>
+                                            <div class="ps-2 last_access">Ultimo accesso oggi alle 12.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="commands d-flex">
+                                        <div class="pe-3">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </div>
+                                        <div class="pe-3">
+                                            <i class="fa-solid fa-paperclip"></i>
+                                        </div>
+                                        <div class="pe-3">
+                                            <i class="fa-solid fa-ellipsis-vertical" class="ps-2"></i>                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="conversation px-5 py-5">
+                                <div class="row flex-column g-4">
+                                    <div class="col rounded" @click="messageOptions()"
+                                    v-for="message in contacts[activeIndex].messages" 
+                                    :class="(message.status === 'sent') ? 'sent_message': 'received_message'">
+                                    {{message.message}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="message_text d-flex justify-content-between w-100 align-items-center">
+                                <i class="fa-regular fa-face-smile ps-5"></i>
+                                <input type="text" placeholder="Scrivi un messaggio" v-model="sentMessage.message" @keyup.enter="sendMessage">
+                                <i class="fa-solid fa-microphone pe-5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+    <!--/.main  -->
+
+<!-- Bootstrap libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+<!-- Vue cdn -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <script src="./assets/js/app.js"></script>
+    </body>
+</html>
