@@ -188,14 +188,15 @@ input::placeholder{
 }
 .options{
     background-color: var(--clr-white);
-    display: flex;
-    flex-direction: column;
     font-size: 0.7rem;
-    width: 150px;
-    height:50px;
-    align-items: center;
-    justify-content: center;
     right:50px;
+    width:70%;
+    text-align: center;
+    padding:0.5rem 0.3rem;
+}
+.options > div:hover{
+    cursor: pointer;
+    background-color: lightblue;
 }
 .active{
     display: block;

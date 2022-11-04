@@ -108,17 +108,17 @@
                             <div class="conversation px-5 py-5">
                                 <div class="row flex-column g-4">
                                     <div class="col rounded position-relative"
-                                    v-for="message in contacts[activeIndex].messages" 
+                                    v-for="(message,index) in contacts[activeIndex].messages" 
                                     :class="(message.status === 'sent') ? 'sent_message': 'received_message'"
-                                    @click.right="openMenu(message)"
-                                    @click="closeMenu(message)">
+                                    @click.right="openMenu(message,index)"
+                                    @click="closeMenu(message,index)">
                                         {{message.message}}
                                         <div class="options rounded position-absolute"
-                                        :class="(isActive === true) ? 'active': 'd-none'">
+                                        :class="(isActive.value === true && isActive.i === index) ? 'active': 'd-none'">
                                             <div class="">
                                                 Message Info
                                             </div>
-                                            <div class="">
+                                            <div class="" @click="deleteMessage">
                                                 Delete message
                                             </div>
                                         </div>

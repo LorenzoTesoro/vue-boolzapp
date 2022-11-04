@@ -4,7 +4,10 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
-            isActive: false,
+            isActive: {
+                i: 0,
+                value: false
+            },
             searchQuery : null,
             botAnswer:{
                 message:'Ok!',
@@ -195,13 +198,15 @@ createApp({
                 this.contacts[this.activeIndex].messages.push(this.botAnswer)
             },1000)
         },
-        openMenu(message){
-            console.log(message.message)
-            this.isActive = true
+        openMenu(message,index){
+            this.isActive.i = index
+            this.isActive.value = true
         },
-        closeMenu(message){
-            console.log(message.message)
-            this.isActive = false
+        closeMenu(message,index){
+            this.isActive.value = false
+        },
+        deleteMessage(){
+            message = ''
         }
     },
     computed: {
