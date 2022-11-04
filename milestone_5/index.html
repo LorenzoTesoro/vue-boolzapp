@@ -107,10 +107,21 @@
                             </div>
                             <div class="conversation px-5 py-5">
                                 <div class="row flex-column g-4">
-                                    <div class="col rounded" @click="messageOptions()"
+                                    <div class="col rounded position-relative"
                                     v-for="message in contacts[activeIndex].messages" 
-                                    :class="(message.status === 'sent') ? 'sent_message': 'received_message'">
-                                    {{message.message}}
+                                    :class="(message.status === 'sent') ? 'sent_message': 'received_message'"
+                                    @click.right="openMenu(message)"
+                                    @click="closeMenu(message)">
+                                        {{message.message}}
+                                        <div class="options rounded position-absolute"
+                                        :class="(isActive === true) ? 'active': 'd-none'">
+                                            <div class="">
+                                                Message Info
+                                            </div>
+                                            <div class="">
+                                                Delete message
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

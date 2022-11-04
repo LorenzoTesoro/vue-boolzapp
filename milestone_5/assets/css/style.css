@@ -186,7 +186,20 @@ input::placeholder{
     padding-top:0.5rem;
     padding-bottom:0.5rem;
 }
-
+.options{
+    background-color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    width: 150px;
+    height:50px;
+    align-items: center;
+    justify-content: center;
+    right:50px;
+}
+.active{
+    display: block;
+}
 span.message_time{
     font-size: 0.5rem;
     position: absolute;
