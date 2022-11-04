@@ -205,11 +205,11 @@ createApp({
         closeMenu(message,index){
             this.isActive.value = false
         },
-        deleteMessage(message,index){
-            
-            return this.message[index] = {}
+        deleteMessage(index){
+        this.contacts[this.activeIndex].messages.splice(index,1);
+
         },
-        lastMessage(contact,message){
+        lastMessage(contact){
             if(contact.messages.length <= 0){
                 return 'Non ci sono messaggi'
             } else{

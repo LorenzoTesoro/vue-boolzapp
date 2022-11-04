@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="ps-3 d-flex flex-column">
                                         <span class="fw-semibold fs-5">{{contact.name}}</span>
-                                        <span class="fw-small">{{lastMessage(contact,message)}}</span>
+                                        <span class="fw-small">{{lastMessage(contact)}}</span>
                                     </div>
                                     <div class="time">
                                         12.00
@@ -119,7 +119,7 @@
                                             <div class="">
                                                 Message Info
                                             </div>
-                                            <div class="" @click="deleteMessage(contact,message,index)">
+                                            <div class=""  @click="deleteMessage(index)">
                                                 Delete message
                                             </div>
                                         </div>
