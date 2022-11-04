@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="ps-3 d-flex flex-column">
                                         <span class="fw-semibold fs-5">{{contact.name}}</span>
-                                        <span class="fw-small">Ultimo messaggio inviato</span>
+                                        <span class="fw-small">{{contact.messages.message}}</span>
                                     </div>
                                     <div class="time">
                                         12.00
@@ -109,16 +109,17 @@
                                 <div class="row flex-column g-4">
                                     <div class="col rounded position-relative"
                                     v-for="(message,index) in contacts[activeIndex].messages" 
-                                    :class="(message.status === 'sent') ? 'sent_message': 'received_message'"
+                                    :class="[(message.status === 'sent') ? 'sent_message': 'received_message', (deleted.value === true && deleted.i === index) ? 'deleted_message': '']"
                                     @click.right="openMenu(message,index)"
-                                    @click="closeMenu(message,index)">
+                                    @click="closeMenu(message,index)"
+                                    >
                                         {{message.message}}
                                         <div class="options rounded position-absolute"
                                         :class="(isActive.value === true && isActive.i === index) ? 'active': 'd-none'">
                                             <div class="">
                                                 Message Info
                                             </div>
-                                            <div class="" @click="deleteMessage">
+                                            <div class="" @click="deleteMessage(message,index)">
                                                 Delete message
                                             </div>
                                         </div>

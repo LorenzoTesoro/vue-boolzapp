@@ -4,6 +4,10 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
+            deleted: {
+                i:0,
+                value:false
+            },
             isActive: {
                 i: 0,
                 value: false
@@ -205,8 +209,12 @@ createApp({
         closeMenu(message,index){
             this.isActive.value = false
         },
-        deleteMessage(){
-            message = ''
+        deleteMessage(message,index){
+            console.log(message)
+            console.log(this.deleted)
+
+            this.deleted.i = index
+            this.deleted.value = true
         }
     },
     computed: {
@@ -218,7 +226,13 @@ createApp({
             } else {
                  return this.contacts
             } 
+        },
+        lastMessage(){
+            this.contacts.slice(-1)[0]
         }
     }
 }).mount('#app')
 
+// click su 'delete message' = mi scompare la bolla
+
+// prendere l'array dei messaggi, splittare l'ogg. che voglio eliminare
