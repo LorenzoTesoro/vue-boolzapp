@@ -57,8 +57,8 @@
                             </div>
                 <!-- /. notifications control-->
                             <div class="p-2 search position-relative">
-                                <i class="fa-solid fa-magnifying-glass position-absolute"></i>
-                                <input class="w-100 h-60" type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchQuery">
+                                <!-- <i class="fa-solid fa-magnifying-glass position-absolute"></i> -->
+                                <input class="w-100 h-60" type="text" placeholder="&#128269 Cerca o inizia una nuova chat" v-model="searchQuery">
                             </div>
                 <!-- /. search -->
                             <ul class="contacts list-unstyled">
@@ -74,7 +74,6 @@
                                         <span class="fw-small">{{lastMessage(contact)}}</span>
                                     </div>
                                     <div class="time">
-                                        12.00
                                     </div>
                                 </li>
                             </ul>
@@ -114,6 +113,8 @@
                                     @click="closeMenu(message,index)"
                                     >
                                         {{message.message}}
+                                        <span class="time">
+                                        </span>
                                         <div class="options rounded position-absolute"
                                         :class="(isActive.value === true && isActive.i === index) ? 'active': 'd-none'">
                                             <div class="">
@@ -126,10 +127,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="message_text d-flex justify-content-between w-100 align-items-center">
-                                <i class="fa-regular fa-face-smile ps-5"></i>
+                            <div class="message_text d-flex align-items-center justify-content-between">
+                                <div class="d-flex ps-5">
+                                    <i class="fa-regular fa-face-smile"></i>
+                                </div>
                                 <input type="text" placeholder="Scrivi un messaggio" v-model="sentMessage.message" @keyup.enter="sendMessage">
-                                <i class="fa-solid fa-microphone pe-5"></i>
+                                <div>
+                                    <i class="fa-solid fa-microphone pe-5"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -142,6 +147,8 @@
 <!-- Bootstrap libraries -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
+<!-- Luxon library -->
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script>
 <!-- Vue cdn -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 

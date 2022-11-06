@@ -215,7 +215,7 @@ createApp({
             } else{
                 return contact.messages[contact.messages.length -1].message
             }
-        }
+        },
     },
     computed: {
         filteredList(){
